@@ -1,0 +1,64 @@
+<!-- ========================== LOBBY.HTML ========================== --><!DOCTYPE html><html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NST Clan | Lobby</title>
+<style>
+body{margin:0;font-family:Tahoma,sans-serif;background:linear-gradient(135deg,#050505,#0a1a22);color:#fff}
+header{text-align:center;padding:50px 20px;background:radial-gradient(circle at top,#00e5ff,transparent 65%)}
+header h1 span{color:#00e5ff}
+nav{margin-top:15px}
+nav a{margin:0 10px;color:#00e5ff;text-decoration:none;font-weight:bold}
+section{max-width:900px;margin:auto;padding:30px 20px}
+.card{background:rgba(255,255,255,0.05);border-radius:18px;padding:25px;margin-bottom:20px;box-shadow:0 0 20px rgba(0,229,255,0.18)}
+button.task{padding:10px 20px;border:none;border-radius:25px;background:#00e5ff;color:#000;font-weight:bold;cursor:pointer;margin-top:10px;transition:0.3s}
+button.task.completed{background:#00bcd4;text-decoration:line-through}
+a.channel-btn{display:inline-block;padding:12px 25px;border-radius:25px;background:#00e5ff;color:#000;font-weight:bold;text-decoration:none;transition:0.3s}
+a.channel-btn:hover{background:#00bcd4}
+footer{text-align:center;padding:20px;font-size:0.9rem;opacity:0.7}
+</style>
+</head>
+<body>
+<header>
+  <h1>سلام، <span id="playerName">کاربر</span></h1>
+  <p>به لابی NST Clan خوش آمدید!</p>
+  <nav>
+    <a href="index.html">خانه</a>
+    <a href="members.html">اعضا</a>
+    <a href="join.html">عضویت</a>
+    <a href="contact.html">ارتباط</a>
+  </nav>
+</header>
+<section>
+  <div class="card">
+    <h2>وظایف شما امروز</h2>
+    <div>
+      <p>اگر مولتی بازی کرده‌اید:</p>
+      <button class="task" onclick="toggleTask(this)">رفتن به کلن وار مولتی</button>
+    </div>
+    <div>
+      <p>اگر بتل رویال بازی کرده‌اید:</p>
+      <button class="task" onclick="toggleTask(this)">انجام ماموریت BR</button>
+    </div>
+  </div>  <div class="card">
+    <h2>اخبار کلن</h2>
+    <p>برای مشاهده تمام خبرها و اطلاعیه‌ها، روی دکمه زیر کلیک کنید:</p>
+    <a href="https://t.me/NSTClanNXP" target="_blank" class="channel-btn">رفتن به کانال تلگرام</a>
+  </div>
+</section>
+<footer>
+  © 2026 NST Clan | Lobby Page
+</footer>
+<script>
+document.getElementById('playerName').textContent = localStorage.getItem('playerName') || 'کاربر';
+function toggleTask(btn){
+  btn.classList.toggle('completed');
+  if(btn.classList.contains('completed')) btn.textContent='انجام شد ✅';
+  else{
+    if(btn.textContent.includes('کلن وار')) btn.textContent='رفتن به کلن وار مولتی';
+    if(btn.textContent.includes('ماموریت')) btn.textContent='انجام ماموریت BR';
+  }
+}
+</script>
+</body>
+</html>
